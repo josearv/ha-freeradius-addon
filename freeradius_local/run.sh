@@ -59,5 +59,27 @@ jq -c '.users[]' "$OPTIONS" | while read -r u; do
   echo "${username} Cleartext-Password := \"${password}\"" >> "$AUTHORIZE_FILE"
 done
 
+echo "[FreeRADIUS] Ensuring EAP certificates exist..."
+if [ ! -f "${RDB}/certs/server.pem" ]; then
+  if [ -d "${RDB}/certs" ]; then
+    cd "${RDB}/certs"
+    # Prefer FreeRADIUS bootstrap script if present
+    if [ -x "./bootstrap" ]; then
+      ./bootstrap
+    else
+      # Fallback for some packages: make
+      if command -v make >/dev/null 2>&1 && [ -f "Makefile" ]; then
+        make
+      else
+        echo "[FreeRADIUS] ERROR: No bootstrap or Makefile found to generate certs in ${RDB}/certs"
+        exit 1
+      fi
+    fi
+  else
+    echo "[FreeRADIUS] ERROR: ${RDB}/certs directory not found"
+    exit 1
+  fi
+fi
+
 echo "[FreeRADIUS] Starting radiusd..."
 exec /usr/sbin/radiusd -f -l stdout
