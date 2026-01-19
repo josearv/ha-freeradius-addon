@@ -3,8 +3,8 @@ set -euo pipefail
 
 OPTIONS="/data/options.json"
 
-CLIENTS_CONF="/etc/freeradius/3.0/clients.conf"
-AUTHORIZE_FILE="/etc/freeradius/3.0/mods-config/files/authorize"
+CLIENTS_CONF="/etc/raddb/clients.conf"
+AUTHORIZE_FILE="/etc/raddb/mods-config/files/authorize"
 
 enable_mod() {
   local mod="$1"
