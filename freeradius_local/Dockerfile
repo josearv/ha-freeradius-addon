@@ -1,10 +1,10 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ghcr.io/home-assistant/aarch64-base:3.19
 
-RUN apk add --no-cache \
+# Community repo (freeradius suele estar aquí)
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.19/community" >> /etc/apk/repositories
+
+RUN apk update && apk add --no-cache \
   freeradius \
-  freeradius-eap \
-  freeradius-mschap \
   freeradius-utils \
   bash \
   jq
