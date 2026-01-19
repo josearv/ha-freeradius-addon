@@ -6,6 +6,9 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.19/community" >> /etc/apk/rep
 RUN apk update && apk add --no-cache \
   freeradius \
   freeradius-utils \
+  openssl \
+  freeradius-eap \
+  freeradius-radclient \
   bash \
   jq
 
