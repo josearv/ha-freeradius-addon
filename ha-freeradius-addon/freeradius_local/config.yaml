@@ -2,7 +2,7 @@ name: "FreeRADIUS Local"
 slug: "freeradius_local"
 description: "FreeRADIUS server (PEAP/MSCHAPv2) for WPA2-Enterprise / 802.1X"
 version: "1.0.3"
-url: "https://github.com/TU_USUARIO/ha-freeradius-addon"
+url: "https://github.com/josearv/ha-freeradius-addon"
 startup: services
 boot: auto
 init: false
