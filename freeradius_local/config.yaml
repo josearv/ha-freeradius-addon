@@ -15,7 +15,6 @@ arch:
   - amd64
   - i386
 
-image: "local/freeradius_local-{arch}"
 build_from:
   aarch64: "ghcr.io/home-assistant/aarch64-base:3.19"
   armv7: "ghcr.io/home-assistant/armv7-base:3.19"
