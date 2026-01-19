@@ -1,0 +1,53 @@
+name: "FreeRADIUS Local"
+slug: "freeradius_local"
+description: "FreeRADIUS server (PEAP/MSCHAPv2) for WPA2-Enterprise / 802.1X"
+version: "1.0.3"
+url: "https://github.com/TU_USUARIO/ha-freeradius-addon"
+startup: services
+boot: auto
+init: false
+stage: stable
+
+arch:
+  - aarch64
+  - armv7
+  - armhf
+  - amd64
+  - i386
+
+image: "local/freeradius_local-{arch}"
+build_from:
+  aarch64: "ghcr.io/home-assistant/aarch64-base:3.19"
+  armv7: "ghcr.io/home-assistant/armv7-base:3.19"
+  armhf: "ghcr.io/home-assistant/armhf-base:3.19"
+  amd64: "ghcr.io/home-assistant/amd64-base:3.19"
+  i386: "ghcr.io/home-assistant/i386-base:3.19"
+
+ports:
+  1812/udp: 1812
+  1813/udp: 1813
+
+options:
+  clients:
+    - name: ap
+      ipaddr: 192.0.2.10
+      secret: "CAMBIAME"
+  users:
+    - username: usuario1
+      password: "CAMBIAME"
+
+schema:
+  clients:
+    - name: str
+      ipaddr: str
+      secret: str
+  users:
+    - username: str
+      password: str
+
+map:
+  - config:rw
+  - share:rw
+
+ingress: false
+panel_icon: "mdi:shield-key"
