@@ -1,7 +1,0 @@
-configuration:
-  clients:
-    name: Clients
-    description: List of devices allowed to talk to RADIUS (AP/router/switch)
-  users:
-    name: Users
-    description: Users allowed to authenticate (testing / initial setup)
