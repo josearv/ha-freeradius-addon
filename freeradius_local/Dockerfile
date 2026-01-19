@@ -7,8 +7,7 @@ RUN apk update && apk add --no-cache \
   freeradius \
   freeradius-utils \
   openssl \
-  freeradius-eap \
-  freeradius-radclient \
+  make \
   bash \
   jq
 
