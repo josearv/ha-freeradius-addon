@@ -1,15 +1,20 @@
 FROM ghcr.io/home-assistant/aarch64-base:3.19
 
-# Community repo (freeradius suele estar aquí)
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.19/community" >> /etc/apk/repositories
 
 RUN apk update && apk add --no-cache \
   freeradius \
   freeradius-utils \
   openssl \
+  ca-certificates \
   make \
   bash \
   jq
+
+# Intentar instalar el módulo EAP si existe con distintos nombres
+RUN apk add --no-cache freeradius-eap 2>/dev/null || true
+RUN apk add --no-cache freeradius-mod-eap 2>/dev/null || true
+RUN apk add --no-cache freeradius-mods 2>/dev/null || true
 
 COPY rootfs/ /
 COPY run.sh /run.sh
