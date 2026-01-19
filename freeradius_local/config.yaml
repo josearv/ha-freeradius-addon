@@ -1,7 +1,7 @@
 name: "FreeRADIUS Local JAR"
 slug: "freeradius_local"
 description: "FreeRADIUS server (PEAP/MSCHAPv2) for WPA2-Enterprise / 802.1X"
-version: "1.0.5"
+version: "1.0.6"
 url: "https://github.com/josearv/ha-freeradius-addon"
 startup: services
 boot: auto
