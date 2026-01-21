@@ -131,4 +131,4 @@ else
 fi
 
 echo "[FreeRADIUS] Starting radiusd..."
-exec /usr/sbin/radiusd -f -l stdout
+exec /usr/sbin/radiusd -X
