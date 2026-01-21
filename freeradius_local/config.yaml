@@ -1,7 +1,7 @@
 name: "FreeRADIUS Local JAR"
 slug: "freeradius_local"
 description: "FreeRADIUS server (PEAP/MSCHAPv2) for WPA2-Enterprise / 802.1X"
-version: "1.1.7"
+version: "1.1.8"
 url: "https://github.com/josearv/ha-freeradius-addon"
 startup: services
 boot: auto
@@ -27,9 +27,6 @@ ports:
   1813/udp: 1813
 
 options:
-  # Parchea /etc/raddb/mods-enabled/eap para poner use_tunneled_reply = yes
-  # Necesario para que la VLAN dinámica (Tunnel-Private-Group-Id) salga en el sitio correcto en PEAP.
-  use_tunneled_reply: true
 
   clients:
     - name: ap
