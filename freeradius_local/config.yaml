@@ -34,6 +34,7 @@ options:
   users:
     - username: usuario1
       password: "CAMBIAME"
+      vlan: 1
 
 schema:
   clients:
@@ -43,6 +44,7 @@ schema:
   users:
     - username: str
       password: str
+      vlan: int
 
 map:
   - config:rw
